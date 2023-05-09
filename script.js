@@ -3,6 +3,7 @@ var score = 0;
 const houseRecord = [];
 const houseName = [];
 
+// High Score Check. Gets the high score data if there is any from the localstorage and adds it to the modal. 
 function HSCheck() {
   var tempscore = JSON.parse(localStorage.getItem("HighScores"));
   var tempname = JSON.parse(localStorage.getItem("Players"));
@@ -219,6 +220,7 @@ const cardcontainer = document.getElementById("common");
 const startbutton = document.getElementById("button");
 const reset = document.getElementById("reset");
 
+// Starts the quiz by running the timer and the quiz. 
 startbutton.addEventListener("click", function (event) {
   event.preventDefault();
   ticker();
@@ -226,10 +228,6 @@ startbutton.addEventListener("click", function (event) {
   document.getElementById("buttonshouse").innerHTML = "";
   repaint();
 });
-
-function refresh() {
-  location.reload();
-}
 
 async function ticker() {
   timeclock = 60;
@@ -242,12 +240,13 @@ async function ticker() {
       timer.textContent = `Time: ${timeclock}`;
     }
     if (timeclock <= 0) {
-      loseScreen();
+      submit();
     }
   }
   setInterval(updateclock, 100);
 }
 
+// adds 100 to the score in localstorage 
 async function updateScore(val) {
   var scoretemp = 0;
   if (localStorage.getItem("score") !== null) {
@@ -257,14 +256,11 @@ async function updateScore(val) {
   localStorage.setItem("score", scoretemp);
 }
 
-function loseScreen() {
-  submit();
-}
-
 function penalty() {
   timeclock -= 10;
 }
 
+// Gets user answers
 function waitForButtonClick(buttonClass) {
   return new Promise((resolve) => {
     const buttons = document.querySelectorAll(`.${buttonClass}`);
@@ -282,9 +278,11 @@ function waitForButtonClick(buttonClass) {
   });
 }
 
+// Generates the quiz by looping through the questions 
 async function repaint() {
   for (j = 0; j < questions.length; j++) {
     Question.innerText = questions[j].question;
+    // Updates the score display each loop
     userScore.innerText = "SCORE: " + JSON.parse(localStorage.getItem("score"));
     cardcontainer.innerHTML =
       `<div class='btn-group-vertical justify-content-center align-items-center'>
@@ -310,11 +308,13 @@ async function repaint() {
   }
 }
 
+//Handles the modal 
 var modal = document.getElementById("HSModal");
 var trigger = document.getElementById("highscorebutton");
 trigger.onclick = function () {
   modal.style.display = "block";
 };
+//clicking anywhere when the modal is active will dismiss it
 window.onclick = function (event) {
   if (event.target == modal || modal.contains(event.target)) {
     modal.style.display = "none";

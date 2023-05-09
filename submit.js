@@ -7,11 +7,12 @@ function printScore() {
   document.getElementById("storedscore").innerText = "SCORE: " + storedScore;
 }
 
+// Same as the modal in the script.js. 
 function HSCheck() {
   var tempscore = JSON.parse(localStorage.getItem("HighScores"));
   var tempname = JSON.parse(localStorage.getItem("Players"));
   for (i = 0; i < 10; i++) {
-    if (tempscore == null && tempname == null) {
+    if (tempscore == null || tempname == null) {
       houseScore[i] = 5000;
       houseName[i] = "AAA";
     } else {
@@ -63,6 +64,7 @@ function HSCheck() {
     "</li>";
 }
 
+//Updates the actual high score list in the localstorage when the user submits one. 
 function HSUpdate(newscore, newname) {
   let userScore = houseScore.slice();
   let userName = houseName.slice();
@@ -84,6 +86,7 @@ function HSUpdate(newscore, newname) {
 HSCheck();
 printScore();
 
+//Accepts submitted user scores if they gave initials that were less than 3 characters. 
 submitButton.addEventListener("click", async function (event) {
   event.preventDefault();
   submittedName = document.getElementById("submitinitials").value;
@@ -91,7 +94,7 @@ submitButton.addEventListener("click", async function (event) {
     document.getElementById("submitinitials").value = null;
     document.getElementById("submitinitials").placeholder = "3 letter max";
   }
-  if(submittedName.length < 1){
+  else if(submittedName.length < 1){
     document.getElementById("submitinitials").value = null;
     document.getElementById("submitinitials").placeholder = "ENTER INITIALS";
   }
