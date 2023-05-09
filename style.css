@@ -1,0 +1,87 @@
+* {
+  background-color: #000000;
+  font-family: "Press Start 2P", sans-serif;
+}
+.navbar {
+  background-color: #000000;
+  max-height: 90px;
+}
+.navtext {
+  font-size: 20px;
+  font-weight: 900;
+  font-family: "Source Sans Pro", sans-serif;
+}
+.intro {
+  font-weight: 900;
+  font-size: 50px;
+}
+.commontext {
+  font-weight: 600;
+  font-size: 24px;
+}
+.raretext {
+  font-weight: 600;
+  font-size: 30px;
+}
+.pt-6 {
+  padding-top: 60px;
+}
+.unassuming {
+  text-decoration: none;
+  color: black;
+}
+.btn-arcade {
+  font-size: 30px;
+  color: white;
+  font-family: "Press Start 2P";
+}
+#highscorebutton {
+  font-weight: lighter;
+  font-size: 20px;
+  /* color:white; */
+  font-family: "Press Start 2P";
+}
+.text-yellow {
+  color: #fbff00;
+}
+.highvis {
+  color: red;
+  font-family: "Press Start 2P";
+}
+#HSL {
+  list-style: none;
+}
+#HSLTITLE {
+  color: red;
+  font-family: "Press Start 2P";
+  text-align: center;
+}
+.modal-body {
+  font-size: 15px;
+}
+.retro {
+  font-family: "Press Start 2P";
+}
+
+.highScoreModal {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding-top: 100px;
+  left: 0;
+  top: 0;
+  background-color: rgb(0, 0, 0);
+}
+
+.modal-content {
+  background-color: #000000;
+  margin: auto;
+  width: 30%;
+  font-size: 30px;
+}
+
+.text-green {
+  color: rgb(16, 219, 16);
+  font-size: 18px;
+}
