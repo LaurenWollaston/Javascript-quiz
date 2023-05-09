@@ -36,3 +36,6 @@ WHEN the game is over
 THEN I can save my initials and score ✔️
 
 ![Demo gif displaying application functionality](./demo.gif)
+
+[Deployed Application](https://laurenwollaston.github.io/Javascript-quiz/)
+[Repo](https://github.com/LaurenWollaston/Javascript-quiz)
